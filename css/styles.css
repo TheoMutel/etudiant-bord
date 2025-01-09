@@ -152,7 +152,7 @@
     --color-gray-13: #4c5158;
     --color-gray-12: #565c64;
     --color-gray-11: #616871;
-    --color-gray-10: #6c737d;
+    --color-gray-10: #000000;
     --color-gray-9 : #7b818a;
     --color-gray-8 : #898f97;
     --color-gray-7 : #989da4;
@@ -920,7 +920,7 @@ textarea {
     -ms-flex: 0 0 50%;
     -webkit-box-flex: 0;
     flex: 0 0 50%;
-    max-width: 50%;
+    max-width: 100%;
 }
 
 .large-7 {
@@ -3536,7 +3536,7 @@ input::-moz-focus-inner {
 }
 
 .s-hero__content h1 {
-    font-size: 22rem;
+    font-size: 11rem;
     font-weight: 600;
     letter-spacing: -.04em;
     line-height: 1;
@@ -4192,15 +4192,15 @@ html.no-csstransitions .s-hero__content {
 }
 
 .service-icon--product-design {
-    background-image: url(../images/icons/services/icon-product-design.svg);
+    background-image: url(../images/icons/services/mail.png);
 }
 
 .service-icon--branding {
-    background-image: url(../images/icons/services/icon-branding.svg);
+    background-image: url(../images/icons/services/fly.png);
 }
 
 .service-icon--frontend {
-    background-image: url(../images/icons/services/icon-frontend.svg);
+    background-image: url(../images/icons/services/influ.png);
 }
 
 .service-icon--research {
