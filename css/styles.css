@@ -3059,13 +3059,18 @@ input::-moz-focus-inner {
  * # site header
  *
  * ------------------------------------------------------------------- */
-.s-header {
-    z-index: 100;
-    width: 100%;
-    height: 8.8rem;
-    position: absolute;
-    top: var(--vspace-0_75);
+ .s-header {
+    position: fixed; /* Pour qu'il reste visible en haut */
+    top: 0;
     left: 0;
+    width: 100%;
+    background-color: var(--color-bg, #fff); /* Couleur de fond du header */
+    z-index: 1000; /* S'assurer qu'il est au-dessus des autres éléments */
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .s-header.offset {
@@ -3526,7 +3531,6 @@ input::-moz-focus-inner {
  * ## hero content
  * ------------------------------------------------------------------- */
 .s-hero__content {
-    height: 100%;
     -ms-flex-align: end;
     -webkit-box-align: end;
     align-items: flex-end;
@@ -3612,46 +3616,46 @@ input::-moz-focus-inner {
 /* ------------------------------------------------------------------- 
  * ## hero video
  * ------------------------------------------------------------------- */
-.s-hero__video {
-    position: absolute;
-    right: 10.4rem;
-    bottom: 20vh;
-}
-
-.s-hero__video svg {
-    height: 1.4rem;
-    width: 1.4rem;
-    position: absolute;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0);
-    left: 50%;
-    top: 50%;
-}
-
-.s-hero__video svg path {
-    fill: white;
+ .s-hero__video {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
 }
 
 .s-hero__video-link {
-    display: block;
-    height: 9.6rem;
-    width: 9.6rem;
-    background-color: var(--color-1);
-    -webkit-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    color: white;
-    border-radius: 100%;
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre l'icône et le texte */
+    text-decoration: none;
+    padding: 12px 20px;
+    background-color: var(--color-1, #d9083c); /* Utilisation de votre couleur principale */
+    color: var(--color-white, #ffffff);
+    border-radius: 8px;
+    font-family: var(--font-1, "Nunito Sans", sans-serif);
+    font-size: var(--text-sm, 16px);
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.s-hero__video-link:hover, 
-.s-hero__video-link:focus {
-    background-color: var(--color-gray-19);
-    outline: 0;
+.s-hero__video-link:hover {
+    background-color: var(--color-2-dark, #b0062f); /* Couleur sur hover */
+    transform: scale(1.05); /* Effet de zoom */
+}
+
+.s-hero__video-link svg {
+    fill: var(--color-white, #ffffff);
+    transition: fill 0.3s ease;
+}
+
+.s-hero__video-link:hover svg {
+    fill: var(--color-3, #f2d0a4);
 }
 
 .s-hero__video-text {
-    display: none;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 
@@ -4969,5 +4973,57 @@ html.no-csstransitions .s-hero__content {
     }
     .ss-copyright {
         font-size: 1.4rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    /* Ajustez le conteneur principal */
+    .container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+
+    .s-header__menu-toggle {
+        display: block; /* Active le bouton de menu */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+    }
+
+    /* Ajustez les sections principales */
+    .s-hero {
+        padding: 3rem 1rem;
+    }
+
+    .s-hero__content h1 {
+        font-size: 2.4rem;
+    }
+
+    .s-hero__content p {
+        font-size: 1.4rem;
+    }
+
+    .s-hero__video-link {
+        padding: 1rem 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .s-about__intro-text h1 {
+        font-size: 2rem;
+    }
+
+    .s-about__intro-text p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    /* Footer */
+    .s-footer {
+        font-size: 1.2rem;
+    }
+
+    .s-footer__block {
+        margin-bottom: 1rem;
     }
 }
